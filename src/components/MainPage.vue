@@ -114,11 +114,11 @@
         <div class="bg-green-50 p-4 rounded-lg border border-green-500">
           <p class="font-semibold text-slate-950">WhatsApp:</p>
           <a
-            href="https://wa.me/625694419400"
+            href="https://wa.me/6285694419400"
             target="_blank"
             class="text-green-500 font-bold underline"
           >
-            +625694419400
+            +62 856-9441-9400
           </a>
         </div>
       </div>
