@@ -1,6 +1,5 @@
 <template>
   <div class="container mx-auto py-10 relative">
-    <!-- Tombol Chevron Back: POSISI POJOK KIRI ATAS -->
     <RouterLink
       to="/"
       class="absolute top-4 left-4 inline-flex items-center text-blue-600 hover:opacity-80 transition bg-white p-2 rounded-full shadow"
