@@ -107,10 +107,11 @@
       <div class="space-y-3">
         <div class="bg-gray-50 p-4 rounded-lg border border-blue-700">
           <p class="font-semibold text-slate-950">Rekening Pembayaran:</p>
-          <p class="text-blue-500 mt-1">Bank BCA — 7130564628</p>
-          <p class="text-blue-500">Sungkono</p>
+          <p class="text-blue-500 mt-1">Bank BCA — 7130564628 (Sungkono)</p>
+          <p class="text-blue-500 mt-1">Bank Permata - 9997510728 (Sungkono)</p>
+          <p class="text-blue-500 mt-1">DANA — 3901085694419400 (Sungkono)</p>
+          <p class="text-blue-500 mt-1">GoPay — 70001085694419400 (Sungkono)</p>
         </div>
-
         <div class="bg-green-50 p-4 rounded-lg border border-green-500">
           <p class="font-semibold text-slate-950">
             Kirim bukti transfer ke nomer Whatsapp ini
