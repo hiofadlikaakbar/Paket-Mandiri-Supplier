@@ -112,7 +112,9 @@
         </div>
 
         <div class="bg-green-50 p-4 rounded-lg border border-green-500">
-          <p class="font-semibold text-slate-950">WhatsApp:</p>
+          <p class="font-semibold text-slate-950">
+            Kirim bukti transfer ke nomer Whatsapp ini
+          </p>
           <a
             href="https://wa.me/6285694419400"
             target="_blank"
