@@ -69,6 +69,16 @@
           </div>
 
           <div>
+            <label class="block font-semibold mb-1">Alamat Lengkap</label>
+            <textarea
+              v-model="alamat"
+              class="w-full border px-3 py-2 rounded-lg"
+              rows="3"
+              placeholder="Masukan alamat kelurahan..."
+            ></textarea>
+          </div>
+
+          <div>
             <label class="block font-semibold mb-1">Jumlah</label>
             <input
               v-model="jumlah"
@@ -126,10 +136,58 @@ const deskripsi = dataPaket[paket].deskripsi;
 const nama = ref("");
 const telepon = ref("");
 const namaSales = ref("");
+const alamat = ref("");
 const jumlah = ref(1);
 
 // SUPABASE INSERT FUNCTION
 const kirimPesanan = async () => {
+  // VALIDASI
+  if (!nama.value.trim()) {
+    Swal.fire({
+      icon: "error",
+      title: "Nama Pemesan wajib diisi!",
+      confirmButtonColor: "#3085d6",
+    });
+    return;
+  }
+
+  if (!telepon.value.trim()) {
+    Swal.fire({
+      icon: "error",
+      title: "Nomor Telepon wajib diisi!",
+      confirmButtonColor: "#3085d6",
+    });
+    return;
+  }
+
+  if (!namaSales.value.trim()) {
+    Swal.fire({
+      icon: "error",
+      title: "Nama Sales wajib diisi!",
+      confirmButtonColor: "#3085d6",
+    });
+    return;
+  }
+
+  if (!alamat.value.trim()) {
+    Swal.fire({
+      icon: "error",
+      title: "Alamat wajib diisi!",
+      confirmButtonColor: "#3085d6",
+    });
+    return;
+  }
+
+  if (jumlah.value < 1) {
+    Swal.fire({
+      icon: "error",
+      title: "Jumlah minimal 1 paket!",
+      confirmButtonColor: "#3085d6",
+    });
+    return;
+  }
+
+  // INSERT KE SUPABASE
   const { error } = await supabase.from("pesanan").insert([
     {
       paket: paket,
@@ -137,6 +195,7 @@ const kirimPesanan = async () => {
       telepon: telepon.value,
       nama_sales: namaSales.value,
       jumlah: jumlah.value,
+      alamat: alamat.value,
     },
   ]);
 
@@ -144,24 +203,26 @@ const kirimPesanan = async () => {
     console.error(error);
     Swal.fire({
       icon: "error",
-      title: "Gagal!",
-      text: "Pesanan tidak dapat dikirim. Coba lagi nanti.",
+      title: "Gagal mengirim pesanan!",
+      text: "Silakan coba beberapa saat lagi.",
       confirmButtonColor: "#3085d6",
     });
     return;
   }
 
+  // SUKSES
   Swal.fire({
     icon: "success",
-    title: "Pesanan Terkirim!",
-    text: "Tunggu, Admin akan segera menghubungi Anda.",
+    title: "Pesanan Berhasil!",
+    text: "Admin akan segera menghubungi Anda.",
     confirmButtonColor: "#3085d6",
   });
 
-  // reset form
+  // RESET FORM
   nama.value = "";
   telepon.value = "";
   namaSales.value = "";
+  alamat.value = "";
   jumlah.value = 1;
 };
 </script>
